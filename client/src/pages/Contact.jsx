@@ -11,8 +11,7 @@ const Contact = () => {
 
         <div className="col-md-4">
           <p className="text-justify mt-2">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis,
-            dolores.
+            Feel Free To Contact if u have Any quries..
           </p>
         </div>
       </div>
