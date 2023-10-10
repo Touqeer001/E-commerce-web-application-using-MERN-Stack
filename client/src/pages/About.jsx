@@ -11,8 +11,8 @@ const About = () => {
 
         <div className="col-md-4">
           <p className="text-justify mt-2 textDesign">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis,
-            dolores.
+            This is E-Commerce About Page Where User Have any query regarding
+            website then they can directly contact..
           </p>
         </div>
       </div>
