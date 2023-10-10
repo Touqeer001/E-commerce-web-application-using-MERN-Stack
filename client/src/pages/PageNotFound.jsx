@@ -10,7 +10,7 @@ const PageNotFound = () => {
           404
         </h1>
         <h2 className="pnf-heading" style={{ color: "white" }}>
-          Working.....
+          Coming Soon...
         </h2>
         <Link
           to="/"
