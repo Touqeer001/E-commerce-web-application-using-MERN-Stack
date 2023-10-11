@@ -35,6 +35,8 @@ const Register = () => {
                 <div className="mb-3">
                   <input
                     type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="form-contro"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
@@ -44,6 +46,8 @@ const Register = () => {
                 <div className="mb-3">
                   <input
                     type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     className="form-control"
                     id="exampleInputPassword1"
                     placeholder="Enter Password"
@@ -52,6 +56,8 @@ const Register = () => {
                 <div className="mb-3">
                   <input
                     type="phone"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                     className="form-control"
                     id="exampleInputPassword1"
                     placeholder="Enter phone"
@@ -59,7 +65,9 @@ const Register = () => {
                 </div>
                 <div className="mb-3">
                   <input
-                    type="phone"
+                    type="address"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
                     className="form-control"
                     id="exampleInputPassword1"
                     placeholder="Enter Your Address"
