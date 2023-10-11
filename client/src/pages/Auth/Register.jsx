@@ -30,16 +30,15 @@ const Register = () => {
 
           <div className="col-md-4 registerBorder">
             <div className="registers">
-              <h3 style={{ color: "white" }}>Registration Page</h3>
+              <h3 style={{ color: "white" }}>Registration Form</h3>
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="form-contro"
+                    className="form-control"
                     id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
                     placeholder="Enter Email"
                   />
                 </div>
