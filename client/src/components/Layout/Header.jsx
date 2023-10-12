@@ -55,6 +55,18 @@ const Header = () => {
               </li>
               <li className="nav-item">
                 <NavLink
+                  to="/Register"
+                  className="nav-link"
+                  href="#"
+                  style={{ color: "white" }}
+                >
+                  <button type="button" class="btn btn-primary">
+                    Categories
+                  </button>
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
                   to="/login"
                   className="nav-link"
                   href="#"
