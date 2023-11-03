@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-// import { SiShopee } from "react-icons/si ";
+// import { SiShopee } from "react-icons/si  ";
 import { SiShopee } from "react-icons/si";
 const Header = () => {
   return (
