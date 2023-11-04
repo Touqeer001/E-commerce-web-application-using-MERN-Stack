@@ -35,7 +35,7 @@ const Login = () => {
                     className="form-contro"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
-                    placeholder="Enter Email"
+                    placeholder="Enter Email.."
                   />
                 </div> */}
                 <div className="mb-3">
