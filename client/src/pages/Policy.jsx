@@ -11,7 +11,7 @@ const Policy = () => {
 
         <div className="col-md-4">
           <p className="text-justify mt-2">
-            Regardin Policies and privacy..Coming Soon
+            Regardin Policies and privacy.Coming Soon
           </p>
         </div>
       </div>
