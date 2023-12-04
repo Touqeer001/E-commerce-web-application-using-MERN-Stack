@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import { toast } from "react-toastify";
+import GoogleButton from "react-google-button";
+
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -30,7 +32,7 @@ const Register = () => {
 
           <div className="col-md-4 registerBorder">
             <div className="registers">
-              <h3 style={{ color: "white" }}>Registration Form</h3>
+              <h3 style={{ color: "white" }}>Registration</h3>
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <input
@@ -53,14 +55,14 @@ const Register = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <input
+                  {/* <input
                     type="phone"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     className="form-control"
                     id="exampleInputPassword1"
                     placeholder="Enter phone"
-                  />
+                  /> */}
                 </div>
                 <div className="mb-3">
                   <input
@@ -77,6 +79,16 @@ const Register = () => {
                   Submit
                 </button>
               </form>
+              <hr></hr>
+              <div>
+                {" "}
+                <GoogleButton
+                  className="g-btn"
+                  type="light"
+                  //onClick={handleLogin}
+                ></GoogleButton>
+              </div>
+              
             </div>
           </div>
         </div>
