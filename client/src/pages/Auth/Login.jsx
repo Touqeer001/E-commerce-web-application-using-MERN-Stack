@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import { toast } from "react-toastify";
+import GoogleButton from "react-google-button";
+import "./Login.css";
 
 const Login = () => {
   const [name, setName] = useState("");
@@ -14,7 +16,10 @@ const Login = () => {
     e.preventDefault();
     console.log(email, password, address, phone);
     toast.success("Register successfuly...");
+    setEmail("");
+    setPassword("");
   };
+
   return (
     <>
       <Layout>
@@ -25,7 +30,7 @@ const Login = () => {
 
           <div className="col-md-4 registerBorder">
             <div className="registers">
-              <h3 style={{ color: "white" }}>Login Form</h3>
+              <h3 style={{ color: "white" }}>Login</h3>
               <form onSubmit={handleSubmit}>
                 {/* <div className="mb-3"> */}
                 {/* <input
@@ -63,6 +68,15 @@ const Login = () => {
                   Login
                 </button>
               </form>
+              <hr></hr>
+              <div>
+                {" "}
+                <GoogleButton
+                  className="g-btn"
+                  type="light"
+                  //onClick={handleLogin}
+                ></GoogleButton>
+              </div>
             </div>
           </div>
         </div>
