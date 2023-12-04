@@ -117,14 +117,15 @@ p{
 
 /* ''''''''''''''''''IImage''''''''''' */
 div #image{
-  height:79%;
+  margin-top:50px;
+  height:65%;
   width:100%;
   border-radius: 20px;
  
 
 }
 .registers{
-  margin-top: 70px;
+  margin-top: 15px;
   padding-left: 20px;
   justify-content: center;
 
@@ -136,3 +137,4 @@ div #image{
   border-radius: 20px;
  
 }
+
