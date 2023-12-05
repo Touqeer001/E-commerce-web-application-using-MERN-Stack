@@ -1,24 +1,56 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import { toast } from "react-toastify";
-import GoogleButton from "react-google-button";
+// import GoogleButton from "react-google-button";
 import "./Login.css";
 
+import React from "react";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import GoogleButton from "react-google-button";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+
+import auth from "../../firebase.init";
+
 const Login = () => {
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
+  // const [ setError] = useState("");
+  // const { logIn, googleSignIn } = useUserAuth();
+  const navigate = useNavigate();
 
-  //Form  Function
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password, address, phone);
-    toast.success("Register successfuly...");
-    setEmail("");
-    setPassword("");
+    console.log(email, password);
+    signInWithEmailAndPassword(email, password);
   };
+
+  const handleLogin = () => {
+    // e.preventDefault();
+
+    signInWithGoogle();
+  };
+
+  const [signInWithGoogle, gooleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
+
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  // console.log(user);
+  // console.log(gooleUser);
+  if (error || googleError) {
+    // console.log("googleErro");
+    // console.log("googleErro");
+  }
+  if (loading || googleLoading) {
+    return <p>Loading...</p>;
+  }
+  if (user || gooleUser) {
+    console.log("gooleUser");
+    navigate("/");
+  }
 
   return (
     <>
@@ -32,17 +64,6 @@ const Login = () => {
             <div className="registers">
               <h3 style={{ color: "white" }}>Login</h3>
               <form onSubmit={handleSubmit}>
-                {/* <div className="mb-3"> */}
-                {/* <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="form-contro"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
-                    placeholder="Enter Email.."
-                  />
-                </div> */}
                 <div className="mb-3">
                   <input
                     type="email"
@@ -74,8 +95,22 @@ const Login = () => {
                 <GoogleButton
                   className="g-btn"
                   type="light"
-                  //onClick={handleLogin}
+                  onClick={handleLogin}
                 ></GoogleButton>
+              </div>
+              <div className="signUpText">
+                Dont Have Account
+                <Link
+                  to="/Register"
+                  style={{
+                    //textDecoration: "none",
+                    color: "white",
+                    fontWeight: "600",
+                    marginLeft: "5px",
+                  }}
+                >
+                  Sign Up
+                </Link>
               </div>
             </div>
           </div>
