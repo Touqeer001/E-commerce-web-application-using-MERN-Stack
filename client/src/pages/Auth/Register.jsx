@@ -2,8 +2,14 @@ import React, { useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import { toast } from "react-toastify";
 import GoogleButton from "react-google-button";
+import { Link } from "react-router-dom";
 
+import auth from "../../firebase.init";
 
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+
+//import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -12,11 +18,44 @@ const Register = () => {
   const [address, setAddress] = useState("");
 
   //Form  Function
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log(email, password, address, phone);
+  //   toast.success("Register successfuly....");
+
+  // };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password, address, phone);
-    toast.success("Register successfuly....");
+    console.log(email, password);
+   // signInWithEmailAndPassword(email, password);
+   createUserWithEmailAndPassword(email, password,address);
+       toast.success("Register successfuly....");
   };
+  const handleLogin = () => {
+    // e.preventDefault();
+
+    signInWithGoogle();
+    setEmail("");
+    setPassword("");
+
+  };
+
+  const [signInWithGoogle, gooleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
+
+    const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  if (error || googleError) {
+    // console.log("googleErro");
+    // console.log("googleErro");
+  }
+  if (loading || googleLoading) {
+    return <p>Loading...</p>;
+  }
+  if (user || gooleUser) {
+    console.log("gooleUser");
+    //navigate("/");
+  }
 
   return (
     <>
@@ -55,28 +94,14 @@ const Register = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  {/* <input
-                    type="phone"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    className="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="Enter phone"
-                  /> */}
+                 
                 </div>
                 <div className="mb-3">
-                  <input
-                    type="address"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    className="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="Enter Your Address"
-                  />
+                  
                 </div>
 
-                <button type="submit" className="btn btn-primary">
-                  Submit
+                <button type="submit" className="btn btn-primary" >
+                Sign Up
                 </button>
               </form>
               <hr></hr>
@@ -85,10 +110,23 @@ const Register = () => {
                 <GoogleButton
                   className="g-btn"
                   type="light"
-                  //onClick={handleLogin}
+                  onClick={handleLogin}
                 ></GoogleButton>
               </div>
+              <div className="signUpText">
+            ALready Have an Account
+            <Link
+              to="/Login"
+              style={{
               
+                color: "var(--twitter-color)",
+                fontWeight: "600",
+                marginLeft: "5px",
+              }}
+            >
+              Log in
+            </Link>
+          </div>
             </div>
           </div>
         </div>
