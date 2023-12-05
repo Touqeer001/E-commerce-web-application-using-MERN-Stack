@@ -41,7 +41,7 @@ const Header = () => {
                   </button>
                 </NavLink>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <NavLink
                   to="/Register"
                   className="nav-link"
@@ -52,10 +52,10 @@ const Header = () => {
                     Register
                   </button>
                 </NavLink>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <NavLink
-                  to="/Register"
+                  to="/PageNotFound"
                   className="nav-link"
                   href="#"
                   style={{ color: "white" }}
