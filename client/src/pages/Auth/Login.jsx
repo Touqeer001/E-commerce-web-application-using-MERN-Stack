@@ -10,7 +10,10 @@ import { Link, useNavigate } from "react-router-dom";
 import GoogleButton from "react-google-button";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useSignInWithEmailAndPassword,
+  useAuthState,
+} from "react-firebase-hooks/auth";
 
 import auth from "../../firebase.init";
 
@@ -45,11 +48,13 @@ const Login = () => {
     // console.log("googleErro");
   }
   if (loading || googleLoading) {
-    return <p>Loading...</p>;
+    return    toast.success("signin successfuly....");
+    
   }
   if (user || gooleUser) {
     console.log("gooleUser");
     navigate("/");
+    toast.success("signin successfuly....");
   }
 
   return (
