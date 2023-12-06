@@ -2,7 +2,32 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 // import { SiShopee } from "react-icons/si.... ";
 import { SiShopee } from "react-icons/si";
+import auth from "../../firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { Link, useNavigate } from "react-router-dom";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+
 const Header = () => {
+  // Check authentication state
+  const [userAuth] = useAuthState(auth);
+  const handleLogout = () => {
+    auth.signOut();
+  };
+
+  const truncateUsername = (username, maxLength) => {
+    if (!username) {
+      return ""; // or handle the case where username is null or undefined
+    }
+    if (username.length <= maxLength) {
+      return username;
+    } else {
+      return username.slice(0, maxLength) + "...";
+    }
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-">
@@ -41,18 +66,7 @@ const Header = () => {
                   </button>
                 </NavLink>
               </li>
-              {/* <li className="nav-item">
-                <NavLink
-                  to="/Register"
-                  className="nav-link"
-                  href="#"
-                  style={{ color: "white" }}
-                >
-                  <button type="button" class="btn btn-primary">
-                    Register
-                  </button>
-                </NavLink>
-              </li> */}
+
               <li className="nav-item">
                 <NavLink
                   to="/PageNotFound"
@@ -65,18 +79,65 @@ const Header = () => {
                   </button>
                 </NavLink>
               </li>
+
               <li className="nav-item">
                 <NavLink
-                  to="/login"
-                  className="nav-link"
-                  href="#"
                   style={{ color: "white" }}
+                  to="/"
+                  className="nav-link active"
+                  aria-current="page"
+                  href="#"
                 >
-                  <button type="button" class="btn btn-primary">
-                    Login
-                  </button>
+                  {userAuth ? (
+                    // If user is authenticated, show user information and logout button
+                    <>
+                      {/* <span>Welcome, {userAuth.displayName}</span> */}
+
+                      <button
+                        button
+                        onClick={handleLogout}
+                        class="btn btn-primary"
+                      >
+                        {" "}
+                        <FontAwesomeIcon icon={faSignOutAlt} />
+                         {truncateUsername(userAuth.displayName, 8)}
+                      </button>
+                    </>
+                  ) : (
+                    // If user is not authenticated, show login/register options
+                    <>
+                      <Link to="/Login" class="btn btn-primary">
+                        <FontAwesomeIcon icon={faUser} /> Login
+                      </Link>
+                      <Link to="/Register"></Link>
+                    </>
+                  )}
                 </NavLink>
               </li>
+
+              {/* <NavLink
+                //   to="/login"
+                //   className="nav-link"
+                //   href="#"
+                //   style={{ color: "white" }}
+                // >
+                //   <button type="button" class="btn btn-primary">
+                //     Login
+                //   </button>
+                {userAuth ? (
+                  // If user is authenticated, show user information and logout button
+                  <>
+                    <span>Welcome, {userAuth.displayName}</span>
+                    <button onClick={handleLogout}>Logout</button>
+                  </>
+                ) : (
+                  // If user is not authenticated, show login/register options
+                  <>
+                    <Link to="/Login">Login</Link>
+                    <Link to="/Register">Register</Link>
+                  </>
+                </NavLink>
+              </li> */}
               <li className="nav-item">
                 <NavLink
                   to="/PageNotFound"
