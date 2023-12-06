@@ -27,9 +27,9 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(email, password);
-   // signInWithEmailAndPassword(email, password);
-   createUserWithEmailAndPassword(email, password,address);
-       toast.success("Register successfuly....");
+    // signInWithEmailAndPassword(email, password);
+    createUserWithEmailAndPassword(email, password, address);
+    toast.success("Register successfuly....");
   };
   const handleLogin = () => {
     // e.preventDefault();
@@ -37,16 +37,15 @@ const Register = () => {
     signInWithGoogle();
     setEmail("");
     setPassword("");
-
   };
 
   const [signInWithGoogle, gooleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
 
-    const [createUserWithEmailAndPassword, user, loading, error] =
+  const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   if (error || googleError) {
-    // console.log("googleErro");
+    console.log("googleErro");
     // console.log("googleErro");
   }
   if (loading || googleLoading) {
@@ -55,6 +54,7 @@ const Register = () => {
   if (user || gooleUser) {
     console.log("gooleUser");
     //navigate("/");
+    toast.success("signin successfuly....");
   }
 
   return (
@@ -93,15 +93,11 @@ const Register = () => {
                     placeholder="Enter Password"
                   />
                 </div>
-                <div className="mb-3">
-                 
-                </div>
-                <div className="mb-3">
-                  
-                </div>
+                <div className="mb-3"></div>
+                <div className="mb-3"></div>
 
-                <button type="submit" className="btn btn-primary" >
-                Sign Up
+                <button type="submit" className="btn btn-primary">
+                  Sign Up
                 </button>
               </form>
               <hr></hr>
@@ -114,19 +110,18 @@ const Register = () => {
                 ></GoogleButton>
               </div>
               <div className="signUpText">
-            ALready Have an Account
-            <Link
-              to="/Login"
-              style={{
-              
-                color: "var(--twitter-color)",
-                fontWeight: "600",
-                marginLeft: "5px",
-              }}
-            >
-              Log in
-            </Link>
-          </div>
+                ALready Have an Account
+                <Link
+                  to="/Login"
+                  style={{
+                    color: "var(--twitter-color)",
+                    fontWeight: "600",
+                    marginLeft: "5px",
+                  }}
+                >
+                  Log in
+                </Link>
+              </div>
             </div>
           </div>
         </div>
