@@ -45,11 +45,9 @@ const Login = () => {
   // console.log(gooleUser);
   if (error || googleError) {
     // console.log("googleErro");
-    // console.log("googleErro");
   }
   if (loading || googleLoading) {
-    return    toast.success("signin successfuly....");
-    
+    return toast.success("signin successfuly....");
   }
   if (user || gooleUser) {
     console.log("gooleUser");
