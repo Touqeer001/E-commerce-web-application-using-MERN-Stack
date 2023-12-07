@@ -8,7 +8,6 @@ import auth from "../../firebase.init";
 
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 
-//import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 const Register = () => {
   const [name, setName] = useState("");
@@ -17,17 +16,10 @@ const Register = () => {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
 
-  //Form  Function
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log(email, password, address, phone);
-  //   toast.success("Register successfuly....");
-
-  // };
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(email, password);
-    // signInWithEmailAndPassword(email, password);
+
     createUserWithEmailAndPassword(email, password, address);
     toast.success("Register successfuly....");
   };
