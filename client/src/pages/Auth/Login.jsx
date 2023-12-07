@@ -1,4 +1,3 @@
-// import React, { useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import { toast } from "react-toastify";
 // import GoogleButton from "react-google-button";
