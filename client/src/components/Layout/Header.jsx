@@ -115,29 +115,7 @@ const Header = () => {
                 </NavLink>
               </li>
 
-              {/* <NavLink
-                //   to="/login"
-                //   className="nav-link"
-                //   href="#"
-                //   style={{ color: "white" }}
-                // >
-                //   <button type="button" class="btn btn-primary">
-                //     Login
-                //   </button>
-                {userAuth ? (
-                  // If user is authenticated, show user information and logout button
-                  <>
-                    <span>Welcome, {userAuth.displayName}</span>
-                    <button onClick={handleLogout}>Logout</button>
-                  </>
-                ) : (
-                  // If user is not authenticated, show login/register options
-                  <>
-                    <Link to="/Login">Login</Link>
-                    <Link to="/Register">Register</Link>
-                  </>
-                </NavLink>
-              </li> */}
+             
               <li className="nav-item">
                 <NavLink
                   to="/PageNotFound"
