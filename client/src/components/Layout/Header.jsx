@@ -67,7 +67,7 @@ const Header = () => {
                 </NavLink>
               </li>
 
-              <li className="nav-item">
+              <li className="nav-item dropdown">
                 <NavLink
                   to="/PageNotFound"
                   className="nav-link"
@@ -79,43 +79,7 @@ const Header = () => {
                   </button>
                 </NavLink>
               </li>
-
-              <li className="nav-item">
-                <NavLink
-                  style={{ color: "white" }}
-                  to="/"
-                  className="nav-link active"
-                  aria-current="page"
-                  href="#"
-                >
-                  {userAuth ? (
-                    // If user is authenticated, show user information and logout button
-                    <>
-                      {/* <span>Welcome, {userAuth.displayName}</span> */}
-
-                      <button
-                        button
-                        onClick={handleLogout}
-                        class="btn btn-primary"
-                      >
-                        {" "}
-                        <FontAwesomeIcon icon={faSignOutAlt} />
-                         {truncateUsername(userAuth.displayName, 8)}
-                      </button>
-                    </>
-                  ) : (
-                    // If user is not authenticated, show login/register options
-                    <>
-                      <Link to="/Login" class="btn btn-primary">
-                        <FontAwesomeIcon icon={faUser} /> Login
-                      </Link>
-                      <Link to="/Register"></Link>
-                    </>
-                  )}
-                </NavLink>
-              </li>
-
-             
+              {/* //------------------------cart Section-------------------------------- */}
               <li className="nav-item">
                 <NavLink
                   to="/PageNotFound"
@@ -127,6 +91,61 @@ const Header = () => {
                     Cart(0)
                   </button>
                 </NavLink>
+              </li>
+
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  style={{ color: "white" }}
+                >
+                  {userAuth ? (
+                    <>
+                      <FontAwesomeIcon icon={faSignOutAlt} />
+                      {truncateUsername(userAuth.displayName, 8)}
+                    </>
+                  ) : (
+                    <>
+                      <FontAwesomeIcon icon={faUser} /> Login
+                    </>
+                  )}
+                </a>
+                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  {userAuth ? (
+                    <>
+                      {/* Display user information and logout button */}
+                      {/* <span className="dropdown-item">Welcome, {userAuth.displayName}</span> */}
+                      <button
+                        className="dropdown-item btn "
+                        onClick={handleLogout}
+                      >
+                        <FontAwesomeIcon icon={faSignOutAlt} />
+                        Logout
+                      </button>
+                      <Link to="/dashboard" className="dropdown-item">
+                        Deshboard
+                      </Link>
+                      <Link to="/admin" className="dropdown-item">
+                        Admin
+                      </Link>
+                    </>
+                  ) : (
+                    <>
+                      {/* Display login/register options */}
+                      <Link to="/Login" className="dropdown-item">
+                        <FontAwesomeIcon icon={faUser} /> Login
+                      </Link>
+                      <Link to="/Register" className="dropdown-item">
+                        Register
+                      </Link>
+                    </>
+                  )}
+                </div>
               </li>
             </ul>
           </div>
