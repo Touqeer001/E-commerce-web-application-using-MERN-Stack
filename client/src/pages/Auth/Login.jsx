@@ -39,8 +39,7 @@ const Login = () => {
 
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
-  // console.log(user);
-  // console.log(gooleUser);
+
   if (error || googleError) {
     // console.log("googleErro");
   }
