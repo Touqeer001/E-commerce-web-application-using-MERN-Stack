@@ -1,6 +1,6 @@
 import Layout from "../../components/Layout/Layout";
 import { toast } from "react-toastify";
-// import GoogleButton from "react-google-button";
+
 import "./Login.css";
 
 import React from "react";
@@ -19,8 +19,7 @@ import auth from "../../firebase.init";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [ setError] = useState("");
-  // const { logIn, googleSignIn } = useUserAuth();
+
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
