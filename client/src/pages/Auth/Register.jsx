@@ -46,7 +46,7 @@ const Register = () => {
   if (user || gooleUser) {
     console.log("gooleUser");
     //navigate("/");
-    toast.success("signin successfuly....");
+    toast.success("signin successfuly...");
   }
 
   return (
