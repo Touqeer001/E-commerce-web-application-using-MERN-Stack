@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="footer">
         <h5 className="text-center">
           {/* All Right Reserved &copy; toqeer_Ibn_Khursheed....*/}
-          All Right Reserve &copy;Touqeer_Ibn_Khursheed
+          All Right Reserve &copy;Team_05
         </h5>
         <p className="text-center mt-3">
           <Link to="/about">About</Link>
