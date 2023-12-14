@@ -11,7 +11,7 @@ const Contact = () => {
 
         <div className="col-md-4">
           <p className="text-justify mt-2">
-            Feel Free To Contact if u have Any quries..!
+            Feel Free To Contact if u have Any quries.
           </p>
         </div>
       </div>
