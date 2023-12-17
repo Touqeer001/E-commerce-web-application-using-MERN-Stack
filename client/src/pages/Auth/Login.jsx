@@ -41,7 +41,7 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
 
   if (error || googleError) {
-    // console.log("googleErro");
+    //  console.log("googleErro");
   }
   if (loading || googleLoading) {
     return toast.success("signin successfuly....");
@@ -86,7 +86,7 @@ const Login = () => {
                 </div>
 
                 <button type="submit" className="btn btn-primary">
-                  Login
+                  Login..
                 </button>
               </form>
               <hr></hr>
