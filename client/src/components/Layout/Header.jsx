@@ -79,7 +79,7 @@ const Header = () => {
                   </button>
                 </NavLink>
               </li>
-              {/* //------------------------cart Section-------------------------------- */}
+              {/* //------------------cart Section-------------------------------- */}
               <li className="nav-item">
                 <NavLink
                   to="/PageNotFound"
@@ -118,7 +118,7 @@ const Header = () => {
                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                   {userAuth ? (
                     <>
-                      {/* Display user information and logout button */}
+                      
                       {/* <span className="dropdown-item">Welcome, {userAuth.displayName}</span> */}
                       <button
                         className="dropdown-item btn "
