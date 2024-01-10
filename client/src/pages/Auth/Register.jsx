@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import Layout from "../../components/Layout/Layout";
-import { toast } from "react-toastify";
 import GoogleButton from "react-google-button";
 import { Link } from "react-router-dom";
-
 import auth from "../../firebase.init";
-
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
-
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import toast from 'react-hot-toast';
+
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
