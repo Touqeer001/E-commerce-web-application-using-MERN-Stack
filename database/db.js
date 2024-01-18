@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const Connection = async () => {
-  const URL = `mongodb+srv://touqeer:Ansari@cluster0.9bh5jgq.mongodb.net/?retryWrites=true&w=majority`;
+  const URL = `Upload MONGODB URL`;
 
   try {
     await mongoose.connect(URL, { useNewUrlParser: true });
