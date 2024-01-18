@@ -1,21 +1,22 @@
 import express from "express";
+import Connection from "./database/db.js";
+import bodyParser from "body-parser";
+import dotenv from "dotenv";
 
 //configure env
 dotenv.config();
 
-
 //rest object
 const app = express();
 
-
 app.use(express.json());
-
+app.use(bodyParser.json({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //PORT....
 const PORT = process.env.PORT || 8080;
+Connection();
 
-app.listen(PORT, () => {
-    console.log(
-      `Server Running on ${process.env.DEV_MODE} mode on port ${PORT}`.bgCyan
-        .white
-    )
+app.listen(PORT, () =>
+  console.log("Server is Running successfully on 8000 Port....")
+);
