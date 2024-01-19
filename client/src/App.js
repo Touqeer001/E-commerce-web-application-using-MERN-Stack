@@ -7,8 +7,10 @@ import PageNotFound from "./pages/PageNotFound";
 import Register from "./pages/Auth/Register";
 import Login from "./pages/Auth/Login";
 
-import Admin from "./pages/Admin";
 import Dashboard from "./pages/user/Dashboard";
+import AdminDashbord from "./pages/Admin/AdminDashbord";
+import CreateCategory from "./pages/Admin/CreateCategory";
+import CreateProduct from "./pages/Admin/CreateProduct";
 
 function App() {
   return (
@@ -21,8 +23,10 @@ function App() {
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/policy" element={<Policy />}></Route>
         <Route path="/pagenotfound" element={<PageNotFound />}></Route>
-        <Route path="/dashboard" element={<Dashboard/>}></Route>
-        <Route path="/admin" element={<Admin />}></Route>
+        <Route path="/dashboard" element={<Dashboard />}></Route>
+        <Route path="/admin" element={<AdminDashbord />}></Route>
+        <Route path="/create-category" element={<CreateCategory />} />
+        <Route path="/create-Product" element={<CreateProduct />} />
       </Routes>
     </>
   );
