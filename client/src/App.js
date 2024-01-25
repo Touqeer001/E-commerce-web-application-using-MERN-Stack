@@ -28,7 +28,7 @@ function App() {
         <Route path="/admin" element={<AdminDashbord />}></Route>
         <Route path="/create-category" element={<CreateCategory />} />
         <Route path="/create-Product" element={<CreateProduct />} />
-        <Route path="/user" element={<User/>} />
+        <Route path="/users" element={<User/>} />
       </Routes>
     </>
   );
