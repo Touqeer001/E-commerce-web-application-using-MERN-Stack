@@ -1,122 +1,106 @@
+import React from "react";
 import Layout from "../../components/Layout/Layout";
+import axios from "axios";
+
 import { toast } from "react-toastify";
 
 import "./Login.css";
 
-import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import GoogleButton from "react-google-button";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
-
-import {
-  useSignInWithEmailAndPassword,
-  useAuthState,
-} from "react-firebase-hooks/auth";
-
-import auth from "../../firebase.init";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  // form function
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email, password);
-    signInWithEmailAndPassword(email, password);
+    try {
+      const res = await axios.post("http://localhost:8080/api/v1/auth/login", {
+    
+        email,
+        password
+       
+      });
+      if (res && res.data.success) {
+        toast.success(res.data && res.data.message);
+        navigate("/");
+      } else {
+        toast.error(res.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong");
+    }
   };
-
-  const handleLogin = () => {
-    // e.preventDefault();
-
-    signInWithGoogle();
-  };
-
-  const [signInWithGoogle, gooleUser, googleLoading, googleError] =
-    useSignInWithGoogle(auth);
-
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
-
-  if (error || googleError) {
-    //  console.log("googleErro");
-  }
-  if (loading || googleLoading) {
-    return toast.success("signin successfuly....");
-  }
-  if (user || gooleUser) {
-    console.log("gooleUser");
-    navigate("/");
-    toast.success("signin successfuly...");
-  }
 
   return (
-    <>
-      <Layout>
-        <div className="row registers">
-          <div className="col-md-6">
-            <img id="image" src="/images/login.png" alt="Login"></img>
-          </div>
+    <Layout title={'Login-E-commerce'}>
+      <div className="row registers">
+        <div className="col-md-6">
+          <img id="image" src="/images/login.png" alt="Login"></img>
+        </div>
 
-          <div className="col-md-4 registerBorder">
-            <div className="registers">
-              <h3 style={{ color: "white" }}>Login</h3>
-              <form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="form-control"
-                    id="exampleInputEmail1"
-                    placeholder="Enter Email"
-                  />
-                </div>
-                <div className="mb-3">
-                  <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="Enter Password"
-                  />
-                </div>
+        <div className="col-md-4 registerBorder">
+          <div className="registers">
+            <h3 style={{ color: "white" }}>Login</h3>
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="form-control"
+                  id="exampleInputEmail1"
+                  placeholder="Enter Email"
+                />
+              </div>
+              <div className="mb-3">
+                <input
+                  type="password"
+                  value={password}
+                   onChange={(e) => setPassword(e.target.value)}
+                  className="form-control"
+                  id="exampleInputPassword1"
+                  placeholder="Enter Password"
+                />
+              </div>
 
-                <button type="submit" className="btn btn-primary">
-                  Login..
-                </button>
-              </form>
-              <hr></hr>
-              <div>
-                {" "}
-                <GoogleButton
-                  className="g-btn"
-                  type="light"
-                  onClick={handleLogin}
-                ></GoogleButton>
-              </div>
-              <div className="signUpText">
-                Dont Have Account
-                <Link
-                  to="/Register"
-                  style={{
-                    //textDecoration: "none",
-                    color: "white",
-                    fontWeight: "600",
-                    marginLeft: "5px",
-                  }}
-                >
-                  Sign Up
-                </Link>
-              </div>
+              <button type="submit" className="btn btn-primary">
+                Login..
+              </button>
+            </form>
+            <hr></hr>
+            {/* <div>
+            {" "}
+            <GoogleButton
+              className="g-btn"
+              type="light"
+              onClick={handleLogin}
+            ></GoogleButton>
+          </div> */}
+            <div className="signUpText">
+              Dont Have an Account
+              <Link
+                to="/register"
+                style={{
+                  //textDecoration: "none",
+                  color: "white",
+                  fontWeight: "600",
+                  marginLeft: "5px",
+                }}
+              >
+              Register
+              </Link>
             </div>
           </div>
         </div>
-      </Layout>
-    </>
+      </div>
+    </Layout>
   );
 };
 
