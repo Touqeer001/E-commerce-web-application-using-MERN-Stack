@@ -93,59 +93,16 @@ const Header = () => {
                 </NavLink>
               </li>
 
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
+              <li className="nav-item">
+                <NavLink
+                  to="/login"
+                  className="nav-link"
                   style={{ color: "white" }}
                 >
-                  {userAuth ? (
-                    <>
-                      <FontAwesomeIcon icon={faSignOutAlt} />
-                      {truncateUsername(userAuth.displayName, 8)}
-                    </>
-                  ) : (
-                    <>
-                      <FontAwesomeIcon icon={faUser} /> Login
-                    </>
-                  )}
-                </a>
-                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  {userAuth ? (
-                    <>
-                      
-                      {/* <span className="dropdown-item">Welcome, {userAuth.displayName}</span> */}
-                      <button
-                        className="dropdown-item btn "
-                        onClick={handleLogout}
-                      >
-                        <FontAwesomeIcon icon={faSignOutAlt} />
-                        Logout
-                      </button>
-                      <Link to="/dashboard" className="dropdown-item">
-                        Deshboard
-                      </Link>
-                      <Link to="/admin" className="dropdown-item">
-                        Admin
-                      </Link>
-                    </>
-                  ) : (
-                    <>
-                      {/* Display login/register options */}
-                      <Link to="/Login" className="dropdown-item">
-                        <FontAwesomeIcon icon={faUser} /> Login
-                      </Link>
-                      <Link to="/Register" className="dropdown-item">
-                        Register
-                      </Link>
-                    </>
-                  )}
-                </div>
+                  <button type="button" class="btn btn-primary">
+                    Login
+                  </button>
+                </NavLink>
               </li>
             </ul>
           </div>
