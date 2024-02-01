@@ -2,31 +2,38 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 // import { SiShopee } from "react-icons/si.... ";
 import { SiShopee } from "react-icons/si";
-import auth from "../../firebase.init";
-import { useAuthState } from "react-firebase-hooks/auth";
+
+
 import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import { useAuth } from "../../context/auth";
 
 const Header = () => {
+  const [auth, setAuth] = useAuth();
   // Check authentication state
-  const [userAuth] = useAuthState(auth);
+  
   const handleLogout = () => {
-    auth.signOut();
+    setAuth({
+      ...auth,
+      user: null,
+      token: null,
+    });
+    localStorage.removeItem("auth");
   };
 
-  const truncateUsername = (username, maxLength) => {
-    if (!username) {
-      return ""; // or handle the case where username is null or undefined
-    }
-    if (username.length <= maxLength) {
-      return username;
-    } else {
-      return username.slice(0, maxLength) + "...";
-    }
-  };
+  // const truncateUsername = (username, maxLength) => {
+  //   if (!username) {
+  //     return ""; // or handle the case where username is null or undefined
+  //   }
+  //   if (username.length <= maxLength) {
+  //     return username;
+  //   } else {
+  //     return username.slice(0, maxLength) + "...";
+  //   }
+  // };
 
   return (
     <>
@@ -92,18 +99,32 @@ const Header = () => {
                   </button>
                 </NavLink>
               </li>
-
-              <li className="nav-item">
-                <NavLink
-                  to="/login"
-                  className="nav-link"
-                  style={{ color: "white" }}
-                >
-                  <button type="button" class="btn btn-primary">
-                    Login
-                  </button>
-                </NavLink>
-              </li>
+              {!auth.user ? (
+                <li className="nav-item">
+                  <NavLink
+                    to="/login"
+                    className="nav-link"
+                    style={{ color: "white" }}
+                  >
+                    <button type="button" class="btn btn-primary">
+                      Login
+                    </button>
+                  </NavLink>
+                </li>
+              ) : (
+                <li className="nav-item">
+                  <NavLink
+                    to="/login"
+                    className="nav-link"
+                    style={{ color: "white" }}
+                    onClick={handleLogout}
+                  >
+                    <button type="button" class="btn btn-primary">
+                      Logout
+                    </button>
+                  </NavLink>
+                </li>
+              )}
             </ul>
           </div>
         </div>
