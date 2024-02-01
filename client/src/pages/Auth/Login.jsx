@@ -8,11 +8,12 @@ import "./Login.css";
 
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/auth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [auth, setAuth] = useAuth();
 
   const navigate = useNavigate();
 
@@ -21,13 +22,18 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await axios.post("http://localhost:8080/api/v1/auth/login", {
-    
         email,
-        password
-       
+        password,
       });
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
+        setAuth({
+          ...auth,
+          user: res.data.user,
+          token: res.data.token,
+        });
+        localStorage.setItem("auth", JSON.stringify(res.data));
+
         navigate("/");
       } else {
         toast.error(res.data.message);
@@ -39,7 +45,7 @@ const Login = () => {
   };
 
   return (
-    <Layout title={'Login-E-commerce'}>
+    <Layout title={"Login-E-commerce"}>
       <div className="row registers">
         <div className="col-md-6">
           <img id="image" src="/images/login.png" alt="Login"></img>
@@ -63,7 +69,7 @@ const Login = () => {
                 <input
                   type="password"
                   value={password}
-                   onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e) => setPassword(e.target.value)}
                   className="form-control"
                   id="exampleInputPassword1"
                   placeholder="Enter Password"
@@ -94,7 +100,7 @@ const Login = () => {
                   marginLeft: "5px",
                 }}
               >
-              Register
+                Register
               </Link>
             </div>
           </div>
