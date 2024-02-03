@@ -1,11 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-// import { SiShopee } from "react-icons/si.... ";
 import { SiShopee } from "react-icons/si";
-
-
-import { Link } from "react-router-dom";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
@@ -13,8 +8,7 @@ import { useAuth } from "../../context/auth";
 
 const Header = () => {
   const [auth, setAuth] = useAuth();
-  // Check authentication state
-  
+
   const handleLogout = () => {
     setAuth({
       ...auth,
@@ -23,17 +17,6 @@ const Header = () => {
     });
     localStorage.removeItem("auth");
   };
-
-  // const truncateUsername = (username, maxLength) => {
-  //   if (!username) {
-  //     return ""; // or handle the case where username is null or undefined
-  //   }
-  //   if (username.length <= maxLength) {
-  //     return username;
-  //   } else {
-  //     return username.slice(0, maxLength) + "...";
-  //   }
-  // };
 
   return (
     <>
@@ -74,7 +57,7 @@ const Header = () => {
                 </NavLink>
               </li>
 
-              <li className="nav-item dropdown">
+               <li className="nav-item dropdown">
                 <NavLink
                   to="/PageNotFound"
                   className="nav-link"
@@ -86,7 +69,7 @@ const Header = () => {
                   </button>
                 </NavLink>
               </li>
-              {/* //------------------cart Section-------------------------------- */}
+
               <li className="nav-item">
                 <NavLink
                   to="/PageNotFound"
@@ -98,7 +81,7 @@ const Header = () => {
                     Cart(0)
                   </button>
                 </NavLink>
-              </li>
+              </li> 
               {!auth.user ? (
                 <li className="nav-item">
                   <NavLink
@@ -106,24 +89,55 @@ const Header = () => {
                     className="nav-link"
                     style={{ color: "white" }}
                   >
-                    <button type="button" class="btn btn-primary">
+                    {/* <button type="button" class="btn btn-primary"> */}
                       Login
-                    </button>
+                    {/* </button> */}
                   </NavLink>
                 </li>
               ) : (
-                <li className="nav-item">
+                <li className="nav-item dropdown">
                   <NavLink
-                    to="/login"
-                    className="nav-link"
-                    style={{ color: "white" }}
-                    onClick={handleLogout}
+                    className="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    // style={{ backgroundColor:: "black" }}
+                    style={{ color: "white",marginTop: "16px",
+                    /* margin-left: -2px; */
+                    marginRight: "67px", border: "none" }}
+                 
                   >
-                    <button type="button" class="btn btn-primary">
-                      Logout
-                    </button>
+                    {auth?.user?.name}
                   </NavLink>
+                  <ul className="dropdown-menu">
+                    <li>
+                      <NavLink
+                      style={{ backgroundColor: "white",color:'black' }}
+                     
+                        to={`/dashboard/${
+                          auth?.user?.role === 1 ? "admin" : "user"
+                        }`}
+                     
+                        className="dropdown-item"
+                      >
+                        Dashboard
+                      </NavLink>
+                    </li>
+                    <li className="nav-item">
+                      <NavLink
+                        to="/login"
+                        className="nav-link"
+                        style={{ color: "white" }}
+                        onClick={handleLogout}
+                      >
+                        <button type="button" class="btn btn-primary">
+                          Logout
+                        </button>
+                      </NavLink>
+                    </li>
+                  </ul>
                 </li>
+                
               )}
             </ul>
           </div>

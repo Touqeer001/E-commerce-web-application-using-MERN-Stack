@@ -2,7 +2,9 @@ import express from "express";
 import Connection from "./database/db.js";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
-import categoryRoutes from "./routes/CategoryRoutes.mjs";
+import categoryRoutes from "./routes/CategoryRoutes.js";
+import authRoutes from "./routes/authRoute.js";
+import cors from "cors";
 
 //configure env
 dotenv.config();
@@ -10,8 +12,12 @@ dotenv.config();
 //rest object
 const app = express();
 
-//routes
+//middelwares
+app.use(cors());
+app.use(express.json());
 
+//routes
+app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/category", categoryRoutes);
 
 app.use(express.json());
@@ -27,5 +33,5 @@ const PORT = process.env.PORT || 8080;
 Connection();
 
 app.listen(PORT, () =>
-  console.log("Server is Running successfully on 8000 Port....")
+  console.log("Server is Running successfully on 8080 Port....")
 );
