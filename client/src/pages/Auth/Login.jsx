@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import "./Login.css";
 
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../context/auth";
 
 const Login = () => {
@@ -16,6 +16,7 @@ const Login = () => {
   const [auth, setAuth] = useAuth();
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   // form function
   const handleSubmit = async (e) => {
@@ -34,7 +35,7 @@ const Login = () => {
         });
         localStorage.setItem("auth", JSON.stringify(res.data));
 
-        navigate("/");
+        navigate(location.state || "/");
       } else {
         toast.error(res.data.message);
       }
@@ -48,7 +49,7 @@ const Login = () => {
     <Layout title={"Login-E-commerce"}>
       <div className="row registers">
         <div className="col-md-6">
-          <img id="image" src="/images/login.png" alt="Login"></img>
+          <img id="image" src="images\Login.jpg" alt="Login"></img>
         </div>
 
         <div className="col-md-4 registerBorder">
@@ -79,6 +80,17 @@ const Login = () => {
               <button type="submit" className="btn btn-primary">
                 Login..
               </button>
+             <div>
+             <button
+                type="submit"
+                className="btn btn-primary"
+                onClick={() => {
+                  navigate("/forgot-password");
+                }}
+              >
+                Forgot Password
+              </button>
+             </div>
             </form>
             <hr></hr>
             {/* <div>
