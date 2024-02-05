@@ -7,19 +7,19 @@ const AdminMenu = () => {
         <div className="list-group dashboard-menu">
           <h4 style={{ color: "white" }}>Admin Panel</h4>
           <NavLink
-            to="/create-category"
+            to="/dashboard/admin/create-category"
             className="list-group-item list-group-item-action"
           >
             Create Category
           </NavLink>
           <NavLink
-            to="/create-Product"
+            to="/dashboard/admin/create-product"
             className="list-group-item list-group-item-action"
           >
             Create Product
           </NavLink>
           <NavLink
-            to="/create-Produt"
+            to="/dashboard/admin/products"
             className="list-group-item list-group-item-action"
           >
             Products
@@ -31,7 +31,7 @@ const AdminMenu = () => {
             Orders
           </NavLink>
           <NavLink
-            to="/users"
+            to="admin/users"
             className="list-group-item list-group-item-action"
           >
             Users
