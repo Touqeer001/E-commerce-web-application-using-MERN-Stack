@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { useAuth } from "../../context/auth";
+import SearchInput from "./Form/SearchInput";
 
 const Header = () => {
   const [auth, setAuth] = useAuth();
@@ -40,9 +41,10 @@ const Header = () => {
               href="#"
               style={{ color: "white", fontWeight: "bold", fontSize: "20px" }}
             >
-              <SiShopee style={{ fontSize: "40" }}></SiShopee>E-Commerce App
+              <SiShopee style={{ fontSize: "40" }}></SiShopee>
             </NavLink>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+              <SearchInput></SearchInput>
               <li className="nav-item">
                 <NavLink
                   style={{ color: "white" }}
