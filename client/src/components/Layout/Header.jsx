@@ -53,22 +53,22 @@ const Header = () => {
                   aria-current="page"
                   href="#"
                 >
-                  <button type="button" class="btn btn-primary">
-                    Home
-                  </button>
+                  {/* <button type="button" class="btn btn-primary"> */}
+                  Home
+                  {/* </button> */}
                 </NavLink>
               </li>
 
-               <li className="nav-item dropdown">
+              <li className="nav-item dropdown">
                 <NavLink
                   to="/PageNotFound"
                   className="nav-link"
                   href="#"
                   style={{ color: "white" }}
                 >
-                  <button type="button" class="btn btn-primary">
-                    Categories
-                  </button>
+                  {/* <button type="button" class="btn btn-primary"> */}
+                  Categories
+                  {/* </button> */}
                 </NavLink>
               </li>
 
@@ -79,11 +79,11 @@ const Header = () => {
                   href="#"
                   style={{ color: "white" }}
                 >
-                  <button type="button" class="btn btn-primary">
+                  {/* <button type="button" class="btn btn-primary"> */}
                     Cart(0)
-                  </button>
+                  {/* </button> */}
                 </NavLink>
-              </li> 
+              </li>
               {!auth.user ? (
                 <li className="nav-item">
                   <NavLink
@@ -92,7 +92,7 @@ const Header = () => {
                     style={{ color: "white" }}
                   >
                     {/* <button type="button" class="btn btn-primary"> */}
-                      Login
+                    Login
                     {/* </button> */}
                   </NavLink>
                 </li>
@@ -104,22 +104,23 @@ const Header = () => {
                     role="button"
                     data-bs-toggle="dropdown"
                     // style={{ backgroundColor:: "black" }}
-                    style={{ color: "white",marginTop: "16px",
-                    /* margin-left: -2px; */
-                    marginRight: "67px", border: "none" }}
-                 
+                    style={{
+                      color: "white",
+                      marginTop: "16px",
+                      /* margin-left: -2px; */
+                      marginRight: "67px",
+                      border: "none",
+                    }}
                   >
                     {auth?.user?.name}
                   </NavLink>
                   <ul className="dropdown-menu">
                     <li>
                       <NavLink
-                      style={{ backgroundColor: "white",color:'black' }}
-                     
+                        style={{ backgroundColor: "white", color: "black" }}
                         to={`/dashboard/${
                           auth?.user?.role === 1 ? "admin" : "user"
                         }`}
-                     
                         className="dropdown-item"
                       >
                         Dashboard
@@ -139,7 +140,6 @@ const Header = () => {
                     </li>
                   </ul>
                 </li>
-                
               )}
             </ul>
           </div>
