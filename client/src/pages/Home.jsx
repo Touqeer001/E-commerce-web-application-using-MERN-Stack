@@ -11,6 +11,7 @@ import { useAuth } from "../context/auth";
 // import { useCart } from "../context/cart";
 
 import "../pages/Style/Homepage.css";
+import Banner from "./Banner";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -134,13 +135,14 @@ const Home = () => {
 
     <Layout title={"ALl Products - Best offers "}>
       {/* banner image */}
-      <img
+      {/* <img
         // src="/images/banner.png"
         className="banner-img"
         alt="bannerimage"
         width={"100%"}
-      />
-      {/* banner image */}
+      /> */}
+      <Banner></Banner>
+     
       <div className="container-fluid row mt-3 home-page">
         <div className="col-md-3 filters">
           <h4 className="text-center" style={{ color: "white" }}>
@@ -161,14 +163,16 @@ const Home = () => {
           <h4 className="text-center mt-4" style={{ color: "white" }}>
             Filter By Price
           </h4>
-          <div className="d-flex flex-column">
+          <div className="d-flex flex-column" >
             <Radio.Group
+            
               onChange={(e) => setRadio(e.target.value)}
               style={{ color: "white" }}
             >
               {Prices?.map((p) => (
-                <div key={p._id}>
-                  <Radio value={p.array}>{p.name}</Radio>
+                <div key={p._id} >
+                  
+                  <Radio value={p.array}  style={{ color: "white" }}>{p.name}</Radio>
                 </div>
               ))}
             </Radio.Group>
