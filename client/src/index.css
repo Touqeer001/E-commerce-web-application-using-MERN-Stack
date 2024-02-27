@@ -3,7 +3,8 @@ body {
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif; */
-    font-family:'Times New Roman', Times, serif;
+    /* font-family:'Times New Roman', Times, serif; */
+    font-family:'Times New Roman';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -33,7 +34,7 @@ code {
 
 
 .nav-link {
-  font-weight: 300 !important;
+  font-weight: 500 !important;
   color: white;
 }
 .navbar-toggler-icon{
@@ -64,6 +65,10 @@ background-color: white;
   color: #ffefba;
   border-bottom: 1px solid #ffefba;
 }
+/* =============================
+==========footer============= */
+
+
 
 
 /* contact page  */
