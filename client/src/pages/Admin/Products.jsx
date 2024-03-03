@@ -10,7 +10,9 @@ const Products = () => {
   //getall products
   const getAllProducts = async () => {
     try {
-      const { data } = await axios.get("http://localhost:8080/api/v1/product/get-product");
+      const { data } = await axios.get(
+        "http://localhost:8080/api/v1/product/get-product"
+      );
       setProducts(data.products);
     } catch (error) {
       console.log(error);
@@ -28,13 +30,16 @@ const Products = () => {
           <AdminMenu />
         </div>
         <div className="col-md-9 ">
-          <h1 className="text-center" style={{color:'white'}}>All Products List</h1>
+          <h1 className="text-center" style={{ color: "white" }}>
+            All Products List
+          </h1>
           <div className="d-flex flex-wrap">
             {products?.map((p) => (
               <Link
                 key={p._id}
                 to={`/dashboard/admin/product/${p.slug}`}
                 className="product-link"
+                style={{ textDecoration: 'none' }}
               >
                 <div className="card m-2" style={{ width: "18rem" }}>
                   <img
@@ -43,8 +48,12 @@ const Products = () => {
                     alt={p.name}
                   />
                   <div className="card-body">
-                    <h5 className="card-title">{p.name}</h5>
-                    <p className="card-text">{p.description}</p>
+                    <h5 className="card-title" style={{ color: "black" }}>
+                      {p.name}
+                    </h5>
+                    <p className="card-text" style={{ color: "black" }}>
+                      {p.description}
+                    </p>
                   </div>
                 </div>
               </Link>
