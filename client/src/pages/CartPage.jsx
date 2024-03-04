@@ -12,9 +12,9 @@ import "./Style/CartStyles.css";
 const CartPage = () => {
   const [auth, setAuth] = useAuth();
   const [cart, setCart] = useCart();
-//   const [clientToken, setClientToken] = useState("");
-//   const [instance, setInstance] = useState("");
-//   const [loading, setLoading] = useState(false);
+  //   const [clientToken, setClientToken] = useState("");
+  //   const [instance, setInstance] = useState("");
+  //   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   //total price
@@ -46,47 +46,50 @@ const CartPage = () => {
   };
 
   //get payment gateway token
-//   const getToken = async () => {
-//     try {
-//       const { data } = await axios.get("/api/v1/product/braintree/token");
-//       setClientToken(data?.clientToken);
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-//   useEffect(() => {
-//     getToken();
-//   }, [auth?.token]);
+  //   const getToken = async () => {
+  //     try {
+  //       const { data } = await axios.get("/api/v1/product/braintree/token");
+  //       setClientToken(data?.clientToken);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   useEffect(() => {
+  //     getToken();
+  //   }, [auth?.token]);
 
   //handle payments
-//   const handlePayment = async () => {
-//     try {
-//       setLoading(true);
-//       const { nonce } = await instance.requestPaymentMethod();
-//       const { data } = await axios.post("/api/v1/product/braintree/payment", {
-//         nonce,
-//         cart,
-//       });
-//       setLoading(false);
-//       localStorage.removeItem("cart");
-//       setCart([]);
-//       navigate("/dashboard/user/orders");
-//       toast.success("Payment Completed Successfully ");
-//     } catch (error) {
-//       console.log(error);
-//       setLoading(false);
-//     }
-//   };
+  //   const handlePayment = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const { nonce } = await instance.requestPaymentMethod();
+  //       const { data } = await axios.post("/api/v1/product/braintree/payment", {
+  //         nonce,
+  //         cart,
+  //       });
+  //       setLoading(false);
+  //       localStorage.removeItem("cart");
+  //       setCart([]);
+  //       navigate("/dashboard/user/orders");
+  //       toast.success("Payment Completed Successfully ");
+  //     } catch (error) {
+  //       console.log(error);
+  //       setLoading(false);
+  //     }
+  //   };
   return (
     <Layout>
       <div className=" cart-page">
         <div className="row">
           <div className="col-md-12">
-            <h1 className="text-center bg-light p-2 mb-1">
+            <h1
+              className="text-center bg-light p-2 mb-1"
+              style={{ color: "white" }}
+            >
               {!auth?.user
                 ? "Hello Guest"
                 : `Hello  ${auth?.token && auth?.user?.name}`}
-              <p className="text-center">
+              <p className="text-center" style={{ color: "white" }}>
                 {cart?.length
                   ? `You Have ${cart.length} items in your cart ${
                       auth?.token ? "" : "please login to checkout !"
@@ -111,9 +114,11 @@ const CartPage = () => {
                     />
                   </div>
                   <div className="col-md-4">
-                    <p>{p.name}</p>
-                    <p>{p.description.substring(0, 30)}</p>
-                    <p>Price : {p.price}</p>
+                    <p style={{ color: "black" }}>{p.name}</p>
+                    <p style={{ color: "black" }}>
+                      {p.description.substring(0, 30)}
+                    </p>
+                    <p style={{ color: "black" }}>Price : {p.price}</p>
                   </div>
                   <div className="col-md-4 cart-remove-btn">
                     <button
@@ -127,15 +132,15 @@ const CartPage = () => {
               ))}
             </div>
             <div className="col-md-5 cart-summary ">
-              <h2>Cart Summary</h2>
+              <h2 style={{ color: "white" }}>Cart Summary</h2>
               <p>Total | Checkout | Payment</p>
               <hr />
-              <h4>Total : {totalPrice()} </h4>
+              <h4 style={{ color: "white" }}>Total : {totalPrice()} </h4>
               {auth?.user?.address ? (
                 <>
                   <div className="mb-3">
-                    <h4>Current Address</h4>
-                    <h5>{auth?.user?.address}</h5>
+                    <h4  style={{ color: "white" }}>Current Address</h4>
+                    <h5  style={{ color: "white" }}>{auth?.user?.address}</h5>
                     <button
                       className="btn btn-outline-warning"
                       onClick={() => navigate("/dashboard/user/profile")}
