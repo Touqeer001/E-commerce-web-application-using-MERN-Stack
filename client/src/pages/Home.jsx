@@ -8,14 +8,14 @@ import { Prices } from "../components/Layout/Prices";
 import Layout from "../components/Layout/Layout";
 import { AiOutlineReload } from "react-icons/ai";
 import { useAuth } from "../context/auth";
-// import { useCart } from "../context/cart";
+ import { useCart } from "../pages/Contax/cart";
 
 import "../pages/Style/Homepage.css";
 import Banner from "./Banner";
 
 const Home = () => {
   const navigate = useNavigate();
-  // const [cart, setCart] = useCart();
+   const [cart, setCart] = useCart();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [checked, setChecked] = useState([]);
@@ -223,10 +223,10 @@ const Home = () => {
                     <button
                       className="btn btn-dark ms-1"
                       onClick={() => {
-                        // setCart([...cart, p]);
+                         setCart([...cart, p]);
                         localStorage.setItem(
-                          "cart"
-                          // JSON.stringify([...cart, p])
+                          "cart",
+                           JSON.stringify([...cart, p])
                         );
                         toast.success("Item Added to cart");
                       }}
