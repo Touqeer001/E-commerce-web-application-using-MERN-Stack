@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema(
       default: 0,
     },
   },
-  { timestamps: true } //whwnwver new user creatwd tie added
+  { timestamps: true } //whenever new user creatwd tie added
 );
 
 export default mongoose.model("users", userSchema);
