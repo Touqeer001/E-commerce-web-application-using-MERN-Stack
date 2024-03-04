@@ -5,9 +5,12 @@ import useCategory from "../../components/hooks/useCategory.js";
 import { useAuth } from "../../context/auth";
 import SearchInput from "./Form/SearchInput";
 import { NavLink, Link } from "react-router-dom";
+import { Badge } from "antd";
+import { useCart } from "../../pages/Contax/cart";
 
 const Header = () => {
   const [auth, setAuth] = useAuth();
+  const [cart] = useCart();
   const categories = useCategory();
 
   const handleLogout = () => {
@@ -87,14 +90,16 @@ const Header = () => {
 
               <li className="nav-item">
                 <NavLink
-                  to="/PageNotFound"
+                  to="/cart"
                   className="nav-link"
-                  href="#"
                   style={{ color: "white" }}
                 >
-                  {/* <button type="button" class="btn btn-primary"> */}
-                    Cart(0)
-                  {/* </button> */}
+                  cart
+                  <Badge
+                    count={cart?.length}
+                    showZero
+                    offset={[-3, -22]}
+                  ></Badge>
                 </NavLink>
               </li>
               {!auth.user ? (
