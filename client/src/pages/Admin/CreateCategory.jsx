@@ -22,9 +22,7 @@ const CreateCategory = () => {
         "http://localhost:8080/api/v1/category/create-category",
         {
           name,
-          
         }
-       
       );
       if (data?.success) {
         toast.success(`${name} is created`);
@@ -105,7 +103,7 @@ const CreateCategory = () => {
             <AdminMenu />
           </div>
           <div className="col-md-9">
-            <h1>Manage Category</h1>
+            <h1 style={{ color: "white" }}>Manage Category</h1>
             <div className="p-3 w-50">
               <CategoryForm
                 handleSubmit={handleSubmit}
