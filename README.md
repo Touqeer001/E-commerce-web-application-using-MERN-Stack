@@ -21,4 +21,5 @@
   </p>
 This is anE-commerce Web Application , built with the MERN stack, makes shopping a breeze. With separate user and admin panels, admins can easily create categories, manage products, and change product statuses. 
 
-![cover](https://github.com/Touqeer001/E-Commerce-Using-MERN-Stack/assets/126690073/8fca9388-e212-4047-99cb-b4a17afd54c6)
+![cover](https://github.com/Touqeer001/E-commerce-web-application-using-MERN-Stack/assets/126690073/16570134-69b0-4e4c-a46e-79a5cb8c4d6f)
+
