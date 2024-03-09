@@ -11,6 +11,7 @@
      <img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white" alt="JsonWebToken" />
      <img src="https://img.shields.io/badge/ContaxtAPI%20-3bc7bd?style=for-the-badge&logo=materialui&logoColor=white" alt="ContaxtAPI"/>
      <img src="https://img.shields.io/badge/React Router%20-3bc7bd?style=for-the-badge&logo=materialui&logoColor=white" alt="React Router"/>
+      <img src="https://img.shields.io/badge/BootStrapr%20-3bc7bd?style=for-the-badge&logo=BootStrap&logoColor=white" alt="BootStrap"/>
     
 </p>
 
