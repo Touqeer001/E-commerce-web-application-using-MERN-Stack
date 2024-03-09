@@ -20,4 +20,5 @@
     <a href="#Contact">Author</a> &#10023;
   </p>
 This is anE-commerce Web Application , built with the MERN stack, makes shopping a breeze. With separate user and admin panels, admins can easily create categories, manage products, and change product statuses. 
- ![cover](https://github.com/Touqeer001/E-Commerce-Using-MERN-Stack/assets/126690073/8fca9388-e212-4047-99cb-b4a17afd54c6)
+
+![cover](https://github.com/Touqeer001/E-Commerce-Using-MERN-Stack/assets/126690073/8fca9388-e212-4047-99cb-b4a17afd54c6)
