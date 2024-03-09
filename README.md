@@ -21,4 +21,53 @@
 This is anE-commerce Web Application , built with the MERN stack, makes shopping a breeze. With separate user and admin panels, admins can easily create categories, manage products, and change product statuses. 
 
 ![cover](https://github.com/Touqeer001/E-commerce-web-application-using-MERN-Stack/assets/126690073/16570134-69b0-4e4c-a46e-79a5cb8c4d6f)
+ 
+  <br />
+  
+  ## Screens ( All screens are responsive)
+   - Homepage
+   - Product Listing.
+   - Product Description Page
+   - Add to Cart 
+   - Login / Logout/Forgot Password
+   - Signup
+    -Payment
+     seperate admin and user dashboard
+
+     ## 🚀 Features
+- Login/Signup/forget Password  User Account
+- seperate user and admin dashboard
+- order detail page
+- Product search
+- Cart Add/Remove Items
+- Cart Update Quantities
+- product discription detail
+- search by name/price product
+- Show Similar Product
+- payment gatway
+
+- ## Glimpses of Mini-Store 🙈 :
+
+
+<table>
+  <tr>
+    <td><img src="https://github.com/Touqeer001/E-commerce-web-application-using-MERN-Stack/assets/126690073/0fd863eb-83d6-4a88-bc51-ca9dd2322264" alt="Login Page" /></td>
+    <td><img src="https://github.com/Touqeer001/E-commerce-web-application-using-MERN-Stack/assets/126690073/725b89bd-b311-4b67-a71c-ff7103eb4251" alt="User Dashboard" /></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/Touqeer001/E-commerce-web-application-using-MERN-Stack/assets/126690073/7175c8e6-5f9e-43e7-9fd5-63d280c3b4e4" alt="Category Page" /></td>
+    <td><img src="https://github.com/Touqeer001/E-commerce-web-application-using-MERN-Stack/assets/126690073/6adb1725-a6d5-47e7-b12e-842b767e63f7" alt="product-details" /></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/Touqeer001/E-commerce-web-application-using-MERN-Stack/assets/126690073/15cf26f9-72b6-4ce8-9e86-ab29384ef59a" alt="order" /></td>
+    <td><img src="https://github.com/Touqeer001/E-commerce-web-application-using-MERN-Stack/assets/126690073/02cbae4e-4b2e-4016-9bf9-eccb4e8f459b" alt="cart" /></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/Touqeer001/E-commerce-web-application-using-MERN-Stack/assets/126690073/99d4ea5d-ca3d-406e-9b6d-84ea826f02b4" alt="Admin Product page" /></td>
+    <td><img src="https://github.com/Touqeer001/E-commerce-web-application-using-MERN-Stack/assets/126690073/36eedc42-81a7-479a-827a-53230b11c130" alt="Admin Manage Category page" /></td>
+  </tr>
+</table>
+
+<br />
+     
 
