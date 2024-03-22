@@ -28,6 +28,7 @@ const Login = () => {
       });
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
+        alert("Login Sucessfull..");
         setAuth({
           ...auth,
           user: res.data.user,
@@ -37,6 +38,7 @@ const Login = () => {
 
         navigate(location.state || "/");
       } else {
+        alert("incorrect username and password");
         toast.error(res.data.message);
       }
     } catch (error) {
@@ -80,17 +82,17 @@ const Login = () => {
               <button type="submit" className="btn1 btn-primary">
                 Login..
               </button>
-             <div>
-             <button
-                type="submit"
-                className="btn1 btn-primary"
-                onClick={() => {
-                  navigate("/forgot-password");
-                }}
-              >
-                Forgot Password
-              </button>
-             </div>
+              <div>
+                <button
+                  type="submit"
+                  className="btn1 btn-primary"
+                  onClick={() => {
+                    navigate("/forgot-password");
+                  }}
+                >
+                  Forgot Password
+                </button>
+              </div>
             </form>
             <hr></hr>
             {/* <div>
