@@ -76,10 +76,12 @@ const CartPage = () => {
       localStorage.removeItem("cart");
       setCart([]);
       navigate("/dashboard/user/orders");
+      alert("Payment Completed Successfully ")
       toast.success("Payment Completed Successfully ");
     } catch (error) {
       console.log(error);
       setLoading(false);
+      alert("Something Went Wrong... ")
     }
   };
   return (
@@ -189,10 +191,7 @@ const CartPage = () => {
                         paypal: {
                           flow: "vault",
                         },
-                        googlePay: {
-                          googlePayVersion: 2,
-                          merchantId: "your_google_pay_merchant_id",
-                        },
+                       
                       }}
                       onInstance={(instance) => setInstance(instance)}
                     />

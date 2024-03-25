@@ -46,7 +46,11 @@ const Login = () => {
     <Layout title={"Login-E-commerce"}>
       <div className="row registers">
         <div className="col-md-6">
-          <img id="image" src="images\reset password.jpg" alt="Login"></img>
+          <img
+            id="image"
+            src="images\resetpassword.jpg"
+            alt="ResetPassword"
+          ></img>
         </div>
 
         <div className="col-md-4 registerBorder">
